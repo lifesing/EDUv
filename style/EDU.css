@@ -1,0 +1,843 @@
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+    padding: 0;
+    margin: 0;
+}
+
+fieldset,
+img,
+html,
+body,
+iframe {
+    border: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+li {
+    list-style: none;
+}
+
+caption,
+th {
+    font-weight: normal;
+    font-style: normal;
+    text-align: left;
+}
+
+em {
+    font-style: normal;
+}
+
+strong {
+    font-weight: bold;
+}
+
+body,
+textarea,
+select,
+input,
+button {
+    font-family: "微软雅黑", "Arial", "Hiragino Sans GB", \5fae\8f6f\96c5\9ed1, "Helvetica", "sans-serif";
+    font-size: 14px;
+    color: #444;
+    outline: none;
+    border: 0;
+}
+
+textarea {
+    resize: none;
+}
+
+input {
+    vertical-align: middle;
+    margin: 0px;
+}
+
+body {
+    background-color: #f8f8f8;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+}
+
+a,
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+a:hover {
+    color: #21a557;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+html {
+    overflow: auto;
+}
+
+.g-flow {
+    width: 1205px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.f-fr {
+    float: right;
+}
+
+.f-fl {
+    float: left;
+}
+
+.f-pr {
+    position: relative;
+}
+
+.f-pa {
+    position: absolute;
+}
+
+.f-pf {
+    position: fixed;
+}
+
+.mrg5R {
+    margin-right: 5px;
+}
+
+.mrg10T {
+    margin-top: 10px;
+}
+
+.mrg10L {
+    margin-left: 10px;
+}
+
+.mrg20L {
+    margin-left: 20px;
+}
+
+.mrg50T {
+    margin-top: 50px;
+}
+
+.pad10T {
+    padding-top: 10px;
+}
+
+.pad20A {
+    padding: 20px;
+}
+
+
+/*顶部提示条*/
+
+.m-tips {
+    position: relative;
+    width: 100%;
+    height: 36px;
+    text-align: center;
+    min-width: 1205px;
+}
+
+.m-tips .text {
+    font-size: 12px;
+    line-height: 36px;
+}
+
+.m-tips a {
+    color: #21a557;
+}
+
+.m-tips .closetips {
+    background: url(../images/icon_close.png) no-repeat 0 center;
+    padding-left: 15px;
+    cursor: pointer;
+}
+
+
+/*头部导航栏*/
+
+.g-nav {
+    height: 95px;
+    background: #fff;
+    min-width: 1205px;
+}
+
+.m-logo {
+    font-family: 'Gill Sans MT';
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 24px;
+    color: #39a030;
+}
+
+.g-nav .text {
+    width: 165px;
+    font-size: 22px;
+    line-height: 22px;
+}
+
+.m-logo-line {
+    height: 19px;
+    width: 1px;
+    background: #39a030;
+    margin-top: 3px;
+}
+
+.g-nav .m-att {
+    color: #fff;
+    margin-left: 30px;
+    height: 21px;
+    width: 55px;
+    border-radius: 3px;
+    background: #21a557;
+    margin-top: 1px;
+    font-size: 12px;
+    text-align: center;
+    line-height: 21px;
+    font-family: "宋体";
+    display: block;
+    cursor: pointer;
+}
+
+.g-nav .m-hasAtt {
+    width: 105px;
+    background: #f8f8f8;
+    color: #333;
+    border: 1px solid #efefef;
+    display: none;
+}
+
+.g-nav .m-hasAtt span {
+    color: #999;
+}
+
+.g-nav .m-fans {
+    margin-left: 14px;
+    font-size: 12px;
+    height: 22px;
+    line-height: 22px;
+    font-family: "宋体";
+}
+
+.g-nav .m-fans span:nth-child(2) {
+    margin-left: 4px;
+}
+
+.g-snav {
+    height: 21px;
+    padding-top: 4px;
+    font-size: 16px;
+    color: #666;
+}
+
+.g-nav .layMargin {
+    height: 37px;
+}
+
+.pclass {
+    width: 133px;
+}
+
+.cclass {
+    width: 103px;
+}
+
+.mooc {
+    width: 144px;
+}
+
+.search {
+    background: url(../images/icon_search1.png) no-repeat;
+    width: 34px;
+    height: 20px;
+    margin-top: 3px;
+}
+
+.search:hover {
+    background: url(../images/icon_search2.png) no-repeat;
+    cursor: pointer;
+}
+
+
+/*幻灯片*/
+
+.wrap {
+    height: 460px;
+    width: 1616px;
+    /*overflow: hidden;*/
+    position: relative;
+}
+
+.slide {
+    height: 460px;
+    background: #fff;
+    text-align: center;
+    zoom: 1;
+    position: relative;
+    min-width: 1616px;
+}
+
+.slide a {
+    display: none;
+}
+
+.slide img {
+    width: 1616px;
+    height: 460px;
+    /*width="1616px;" height="459px;*/
+}
+
+.pointer {
+    position: absolute;
+    bottom: 20px;
+    right: 50%;
+    transform: translateX(50%);
+}
+
+.slide li {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: inline-block;
+    margin-right: 7px;
+}
+
+
+/*广告*/
+
+.advertise {
+    height: 297px;
+    background: #fff;
+    min-width: 1205px;
+}
+
+.advertise .layMargin {
+    height: 60px;
+}
+
+.bpic {
+    width: 80px;
+    height: 80px;
+    background: url(../images/icon_product.png) no-repeat;
+    /*border: 1px solid red;*/
+    margin-top: 10px;
+    margin-right: 21px;
+    margin-left: 5px;
+}
+
+.adv-intro {
+    font-size: 14px;
+    line-height: 24px;
+    color: #666;
+}
+
+.adv-intro-pclass {
+    width: 346px;
+    /*height: 242px;*/
+}
+
+.adv-intro .text {
+    width: 240px;
+}
+
+.adv-intro .text p {
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.adv-intro .text a {
+    color: #39a030;
+}
+
+.adv-intro .text a:hover {
+    text-decoration: underline
+}
+
+.adv-intro-cclass {
+    margin-left: 78px;
+}
+
+.bcc {
+    background-position: 0 -80px;
+}
+
+.bmooc {
+    background-position: 0 -160px;
+}
+
+.adv-intro-mooc {
+    margin-left: 75px;
+}
+
+
+/*中间图片*/
+
+.pictures {
+    text-align: center;
+    margin-top: 3px;
+    height: 220px;
+    margin-bottom: 81px;
+}
+
+.picture {
+    width: 320px;
+    height: 220px;
+    margin-right: 2px;
+    margin-left: 1px;
+}
+
+.pictures .g-flow {
+    width: 1616px;
+    text-align: left;
+    margin: 0 auto;
+}
+
+.img-1 {
+    background: url(../images/p1.jpg) no-repeat;
+}
+
+.img-2 {
+    background: url(../images/p2.jpg) no-repeat;
+}
+
+.img-3 {
+    background: url(../images/p3.jpg) no-repeat;
+}
+
+.img-4 {
+    background: url(../images/p4.jpg) no-repeat;
+}
+
+.img-5 {
+    background: url(../images/p5.jpg) no-repeat;
+}
+
+.pictures .g-flow {
+    width: 1616px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.m-course {
+    height: 500px;
+    background: lightskyblue;
+}
+
+
+/*课程*/
+
+.g-course .g-flow {
+    width: 1215px;
+}
+
+.mn-course {
+    width: 983px;
+    height: 1470px;
+}
+
+.mn-course .mn-course-tit {
+    width: 400px;
+    height: 50px;
+    margin-left: 10px;
+}
+
+.mn-course .mn-course-tit li {
+    width: 200px;
+}
+
+.mn-course .mn-course-tit li a {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    color: #666;
+    line-height: 50px;
+    font-size: 20px;
+    text-align: center;
+    display: block;
+}
+
+.mn-course .mn-course-tit li a.active {
+    background: #39a030;
+    color: #fff;
+}
+
+.mn-course .mn-course-con {
+    width: 100%;
+    height: 1440px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.mn-course .m-courseBox {
+    height: 248px;
+    width: 225px;
+    margin-right: 20px;
+    /*position: absolute;*/
+    /*border: 1px solid red;*/
+}
+
+.m-courseBox .title {
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    color: #333;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.m-courseBox .imgBox {
+    height: 125px;
+    width: 100%;
+}
+
+.m-courseBox .course {
+    position: absolute;
+    height: auto;
+    width: 225px;
+    margin-left: 10px;
+    margin-top: 20px;
+    background: #fff;
+    box-shadow: 0px 1px 1px #ddd;
+}
+
+.m-courseBox .course-detail {
+    display: none;
+    height: 237px;
+    width: 478px;
+    z-index: 999;
+    position: relative;
+    background: #fff;
+    border: 1px solid #d1d0d0;
+    box-shadow: 0px 0px 2px #a8a8a8;
+    margin-top: 8px;
+    margin-left: 2px;
+}
+
+.m-courseBox:hover .course-detail {
+    display: inline-block
+}
+
+.m-courseBox .category {
+    height: 12px;
+    line-height: 12px;
+    font-size: 12px;
+    color: #999;
+    margin-left: 5px;
+}
+
+.m-courseBox .number {
+    height: 26px;
+    font-size: 12px;
+    color: #999;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+.m-courseBox .number span {
+    border-radius: 2px;
+    height: 18px;
+    border: 1px solid #999;
+    padding-left: 15px;
+    padding-right: 3px;
+    background: url(../images/icon_people.png) no-repeat;
+}
+
+.m-courseBox .price {
+    height: 23px;
+    font-size: 12px;
+    color: red;
+    margin-left: 5px;
+}
+
+.mn-course .mn-course-con li {
+    width: 100%;
+    height: 90%;
+}
+
+.hidden {
+    display: none;
+}
+
+.sd-course {
+    width: 222px;
+    height: 780px;
+    margin-left: 10px;
+}
+
+.sd-course-advertise {
+    background: #fff;
+    box-shadow: 0px 1px 1px #ddd;
+}
+
+.sd-course .text {
+    color: #333;
+    font-size: 16px;
+    height: 54px;
+    border-bottom: 1px solid #ddd;
+    line-height: 54px;
+}
+
+.sd-course-advertise span {
+    margin-left: 20px;
+}
+
+.sd-course .videoBox {
+    padding: 20px;
+}
+
+.sd-course .videoBox p {
+    color: #666;
+}
+
+.sd-course .videoBox img {
+    height: 110px;
+    width: 100%;
+    margin-top: 9px;
+}
+
+.m-top {
+    background: #fff;
+    box-shadow: 0px 1px 1px #ddd;
+    margin-top: 20px;
+    height: 780px;
+}
+
+
+/*底部*/
+
+.foot {
+    height: 262px;
+    position: relative;
+    bottom: 0;
+    zoom: 1;
+    min-width: 1616px;
+}
+
+.foot .g-flow {
+    width: 1616px;
+    text-align: left;
+    margin: 0 auto;
+    background: #2c3339;
+    height: 100%;
+}
+
+.foot .foot-l {
+    margin-top: 90px;
+    margin-left: 256px;
+}
+
+.foot .foot-l p {
+    color: #b0b2b3;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 25px;
+}
+
+.foot .foot-r {
+    margin-left: 150px;
+    margin-top: 80px;
+}
+
+.foot .foot-r div:nth-child(2) {
+    margin-left: 98px;
+}
+
+.foot .foot-r div:nth-child(3) {
+    margin-left: 72px;
+}
+
+.foot .foot-r p {
+    font-size: 15px;
+}
+
+.foot .foot-r .weibo {
+    width: 30px;
+    display: block;
+    background: url(../images/weibo.png) no-repeat;
+    margin-top: 7px;
+    margin-left: 5px;
+}
+
+.foot .text {
+    width: 165px;
+    font-size: 22px;
+    line-height: 22px;
+    color: #39a030;
+}
+
+.foot p,
+h4 {
+    color: #b0b2b3;
+    line-height: 28px;
+}
+
+.m-popBox {
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.7);
+    top: 0;
+    display: none;
+}
+
+.m-login {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 387px;
+    height: 288px;
+    background-color: #ffffff;
+    transform: translate(-50%, -50%);
+}
+
+.m-close {
+    background: url(../images/icon_close.png) no-repeat;
+    margin-top: 10px;
+    margin-right: 10px;
+    width: 13px;
+    height: 13px;
+    cursor: pointer;
+}
+
+.m-login form {
+    margin: 30px 50px 40px 38px;
+}
+
+.m-login legend {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.m-login .text {
+    width: 295px;
+    height: 43px;
+    border: 1px solid #dfdfdf;
+    box-shadow: 2px 2px 0px #f1f1f1 inset;
+    margin: 8px 0px 8px 0px;
+    padding-left: 12px;
+    font-size: 16px;
+}
+
+.m-login button {
+    margin-top: 22px;
+    margin-right: 0px;
+    border: 0;
+    height: 43px;
+    width: 100%;
+    background: #1fa841;
+    box-shadow: 2px 2px 0px #d5e3da;
+    font-size: 16px;
+    font-weight: bolder;
+    color: #fff;
+}
+
+.m-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 950px;
+    height: 675px;
+    background-color: #ffffff;
+    transform: translate(-50%, -50%);
+}
+
+.m-video p {
+    margin: 30px 30px 22px 30px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+/*清除浮动*/
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.topLi {
+    /*border: 1px solid red;*/
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.topTxt {
+    width: 120px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: 14px;
+    font-size: 14px;
+}
+
+.pNum {
+    background: url(../images/icon_people.png) no-repeat;
+    padding-left: 18px;
+    font-size: 12px;
+    margin-top: 12px;
+    margin-bottom: 5px;
+    color: #666;
+}
+
+.course-detail .text {
+    font-size: 12px;
+    color: #666;
+    padding-top: 6px;
+}

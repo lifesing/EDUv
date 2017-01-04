@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>网易教育部产品</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="网易云课堂，云课堂，视频课程，视频教程，课程集合，学习资源">
+    <meta name="description" content="在网易云课堂，发现好课！云课堂是网易公司(163.com)旗下实用技能学习平台。与顶级机构、院校和优秀讲师合作，为您提供海量优质课程，以及创新的在线学习体验。涉及IT互联网、设计、职场提升、经管、法律、语言、留学、考试、亲子育儿、兴趣生活等多个领域。帮助您获得全新的个人发展和能力提升。" />
+    <link href="style/EDU.css" rel="stylesheet">
+</head>
+
+<body>
+    <!--顶部提示条-->
+    <div class="m-tips" style="display:none;">
+        <div class="g-flow">
+            <div class="text f-fl f-pr">
+                网易云课堂微专业，帮助你掌握专业技能，令你求职或加薪多一份独特优势！
+                <a>&nbsp;立即查看></a>
+            </div>
+            <div class="text f-fr f-pr">
+                <div class="closetips f-fr" onclick="closeTips()">不再提醒</div>
+            </div>
+        </div>
+    </div>
+    <!--头部-->
+    <div class="g-nav">
+        <div class="g-flow">
+            <div class="layMargin"></div>
+            <div class="f-fl">
+                <div class="m-logo f-fl f-pr">EDU&nbsp;</div>
+                <div class="m-logo-line f-fl"></div>
+                <div class="text f-fl f-pr">&ensp;网易教育产品部</div>
+                <div class="m-att f-fl" onclick="showAtt()">
+                    <img class="mrg5R" src="images/icon_add.png">关注
+                </div>
+                <div class="m-att m-hasAtt f-fl">
+                    <img class="mrg5R" src="images/icon_right.png">已关注&ensp;|&ensp;<span>取消</span>
+                </div>
+                <div class="m-fans f-fl">
+                    <span>粉丝</span>
+                    <span>45</span>
+                </div>
+            </div>
+            <div class="g-snav f-fr">
+                <div class="search f-fr f-pr">
+                </div>
+                <div class=" mooc f-fr f-pr">
+                    <a href="http://www.icourse163.org/" target="_blank">中国大学MOOC</a>
+                </div>
+                <div class=" cclass f-fr f-pr">
+                    <a href="http://study.163.com/" target="_blank">云课堂</a>
+                </div>
+                <div class=" pclass f-fr f-pr">
+                    <a href="http://open.163.com/" target="_blank">网易公开课</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--幻灯片-->
+    <div class="slide" id="slide">
+        <a class="astyle" target="_blank" href="http://open.163.com/"><img src="images/banner1.jpg" /></a>
+        <a class="astyle" target="_blank" href="http://study.163.com/"><img id="second" src="images/banner2.jpg" /></a>
+        <a class="astyle" target="_blank" href="http://www.icourse163.org/"><img id="second" src="images/banner3.jpg" /></a>
+        <!--<img src="images/banner1.jpg" alt="" width="1616px;" height="459px;">-->
+        <ul class="pointer" id="pointer">
+            <li class="current"></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <!--平台介绍-->
+    <div class="advertise">
+        <div class="g-flow">
+            <div class="layMargin"></div>
+            <div class="adv-intro">
+                <div class="adv-intro-pclass f-fl">
+                    <div class="f-fl f-pr">
+                        <div class="bpic"></div>
+                    </div>
+                    <div class="text f-fl f-pr">
+                        <h2>网易公开课</h2>
+                        <p>推出国内外名校公开课，涉及广泛的学科，名校老师认真讲解深度剖析，网易视频公开课频道搭建起清幽里的网络视频教学平台。</p>
+                        <a href="http://open.163.com/" target="_blank">了解更多></a>
+                    </div>
+                </div>
+                <div class="adv-intro-cclass f-fl">
+                    <div class="f-fl f-pr">
+                        <div class="bpic bcc"></div>
+                    </div>
+                    <div class="text f-fl f-pr">
+                        <h2>云课堂</h2>
+                        <p>网易旗下大型在线学习平台，该平台面向学习者提供海量免费、优质课程，创新的个性化学习体验，自由开放的交流互动环境。</p>
+                        <a href="http://study.163.com/" target="_blank">了解更多></a>
+                    </div>
+                </div>
+                <div class="adv-intro-mooc f-fl">
+                    <div class="f-fl f-pr">
+                        <div class="bpic bmooc"></div>
+                    </div>
+                    <div class="text f-fl f-pr">
+                        <h2>中国大学MOOC</h2>
+                        <p>是爱课程王携手云课堂打造的在线学习平台，每一个有提升愿望的人们都可以在这里学习中国最好的大学课程，学完还能获得认证证书。</p>
+                        <a href="http://www.icourse163.org/" target="_blank">了解更多></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--中间图片-->
+    <div class="pictures">
+        <div class="g-flow">
+            <div class="f-fl picture img-1 "></div>
+            <div class="f-fl picture img-2 "></div>
+            <div class="f-fl picture img-3 "></div>
+            <div class="f-fl picture img-4 "></div>
+            <div class="f-fl picture img-5 "></div>
+        </div>
+    </div>
+    <!--课程-->
+    <div class="g-course clearfix">
+        <div class="g-flow">
+            <div class="mn-course f-fl">
+                <ul class="mn-course-tit" id="courseTit">
+                    <li class="f-fl"><a class="active" href="javascript:void(0)" onclick="tabChange('courseTit','tabCon','active',0)">产品设计</a></li>
+                    <li class="f-fl"><a href="javascript:void(0)" onclick="tabChange('courseTit','tabCon','active',1)">编程语言</a></li>
+                </ul>
+                <!--左侧课程列表-->
+                <ul class="mn-course-con" id="tabCon">
+                    <li>
+                        <div class="m-courseBox f-fl">
+                            <div class="course">
+                                <div class="imgBox">
+                                    <img height=100% width=100%;>
+                                </div>
+                                <div class="title">
+                                    文字文11111111文字文11111111文字文11111111文字文11111111文字文11111111
+                                </div>
+                                <div class="category">音频帮</div>
+                                <div class="number">
+                                    <span>510</span>
+                                </div>
+                                <div class="price">
+                                    <span>￥800.00</span>
+                                </div>
+                            </div>
+                            <div class="course-detail">
+                                <div>
+                                    <div style="">
+                                        <div style="margin:10px 10px 20px 10px;height:126px;">
+                                            <div class="f-fl">
+                                                <img src="" height="125px" width="225px">
+                                            </div>
+                                            <div class="f-fl mrg20L">
+                                                <h3>手绘画系列教程</h3>
+                                                <div class="pNum">12人在学</div>
+                                                <div class="text">发布者：的房价都是分开</div>
+                                                <div class="text">分类：的jfk打算</div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div style="height:81px;background:#f8f8f8;">
+                                        <p class="pad20A">的肌肤点卡收费会计法啊看见对方酒店房卡的发的艰苦艰苦地方京东方科技阿里的咖啡机卡的肌肤</p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="m-courseBox f-fl">
+                            <div class="course">
+                                <div class="imgBox">
+                                    <img height=100% width=100%;>
+                                </div>
+                                <div class="title">
+                                    文字文2222
+                                </div>
+                                <div class="category">音频帮</div>
+                                <div class="number">
+                                    <span>510</span>
+                                </div>
+                                <div class="price">
+                                    <span>￥800.00</span>
+                                </div>
+                            </div>
+                            <div class="course-detail">
+                                <div>
+                                    <div>
+                                        123
+                                    </div>
+                                    <div>
+                                        456
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="hidden">选项卡二的内容
+                    </li>
+                </ul>
+            </div>
+            <!--右侧侧栏-->
+            <div class="sd-course f-fl">
+                <!--机构介绍-->
+                <div class="sd-course-advertise">
+                    <div class="text">
+                        <span>机构介绍</span>
+                    </div>
+                    <div class="videoBox">
+                        <p>观看下面的视频来了解吧：</p>
+                        <img src="images/video.png" onclick="showVideo()">
+                    </div>
+                </div>
+                <!--最热排行-->
+                <div class="m-top">
+                    <div class="text">
+                        <span class="mrg20L">最热排行</span>
+                    </div>
+                    <ul class="pad20A topUl">
+                        <!--<li class=".clearfix topLi">
+                            <div class="f-fl">
+                                <img src="" height="50px" width="50px">
+                            </div>
+                            <div class="mrg10L f-fl">
+                                <p class=" topTxt">附近的卡刷积分打扫房间啊减肥电风扇大师傅</p>
+                                <div class="pNum">123456</div>
+                            </div>
+                        </li>
+                        <li class=".clearfix" style="border:1px solid red;height:52px;">
+                            <div class="f-fl">
+                                <img src="" height="50px" width="50px">
+                            </div>
+                            <div class="mrg10L f-fl">
+                                <p>biaoti</p>
+                                21567
+                            </div>
+                        </li>-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--底部-->
+    <div class="foot">
+        <div class="g-flow">
+            <div class="foot-l f-fl">
+                <div class="m-logo f-fl f-pr">EDU&nbsp;</div>
+                <div class="m-logo-line f-fl"></div>
+                <div class="text f-fl f-pr clearfix">&ensp;网易教育产品部</div>
+                <p class="mrg50T">
+                    &copy;2014 icourse163.org 浙ICP备08114786号-1
+                </p>
+                <p>
+                    icourse.cn 京ICP备12020869号-2 京公网安备1110102000459-2
+                </p>
+            </div>
+            <div class="foot-r f-fl">
+                <div class="f-fl">
+                    <h4>友情链接：</h4>
+                    <p>网易公开课</p>
+                    <p>网易云课堂</p>
+                    <p>中国大学MOOC</p>
+                </div>
+                <div class="f-fl">
+                    <h4>我们：</h4>
+                    <p>关于</p>
+                    <p>联系</p>
+                    <p>关注&ensp;<span class="weibo f-fr">&ensp;</span></p>
+                </div>
+                <div class="f-fl">
+                    <h4>更多：</h4>
+                    <p>常见问题</p>
+                    <p>意见反馈</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--登录-->
+    <div class="m-popBox" id="login">
+        <div class="m-login">
+            <div class="m-close f-fr" onclick="closeBox()"></div>
+            <form action="" name="loginForm" target="result" autocomplete="off">
+                <legend>登录网易云课堂</legend>
+                <fieldset>
+                    <div>
+                        <input class="text" id="userName" type="text" name="userName" placeholder="账号">
+                    </div>
+                    <div>
+                        <input class="text" id="password" type="password" name="password" placeholder="密码">
+                    </div>
+                    <div>
+                        <button name="loginbtn">登录</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <!--播放视频-->
+    <div class="m-popBox" id="playVideo">
+        <div class="m-video">
+            <div class="m-close f-fr" onclick="closeVideo()"></div>
+            <p class="f-fl">请观看下面的视频</p>
+            <video src="http://mov.bn.netease.com/open-movie/nos/mp4/2014/12/30/SADQ86F5S_shd.mp4" width="890" controls loop></video>
+        </div>
+    </div>
+    <script type="text/javascript" src="script/pub.js"></script>
+    <script type="text/javascript" src="script/EDU.js"></script>
+</body>
+
+</html>
