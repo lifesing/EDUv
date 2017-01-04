@@ -68,7 +68,7 @@ function get(url, options, callback) { //定义get函数
     var xhr = new XMLHttpRequest(); //创建Ajax对象
     xhr.open("get", url + '?' + serialize(options)); //开启一个异步请求
     xhr.send(null); //发送请求
-    xhr.onreadystatechange = function() { //注册事件 处理返回数据
+    xhr.onreadystatechange = function () { //注册事件 处理返回数据
         if (xhr.readyState == 4) { //若请求完毕
             if (xhr.status >= 200 && xhr.status < 300 || xhr.status == 304) { //若请求成功
                 callback(xhr.responseText); //调用回调函数处理响应结果
@@ -81,4 +81,48 @@ function get(url, options, callback) { //定义get函数
 
     }
 
+}
+
+/**
+ * 数组循环
+ */
+function each(_objects, _fn) {
+    for (var i = 0, len = _objects.length; i < len; i++) {
+        _fn(_objects[i], i);
+    }
+}
+
+/**
+ * 根据id获取元素
+ */
+function getById(id) {
+    return document.getElementById(id);
+}
+
+
+/**
+ * 根据class获取元素
+ */
+function getByClass(className, element) {
+
+    if (element.getElementsByClassName) {
+        return element.getElementsByClassName(className);
+    } else {
+        //ie不支持getElementsByClassName
+        var children = (element || document).getElementsByTagName('*');
+        var elements = [];
+        for (var i = 0; i < children.length; i++) {
+            var child = children[i];
+            var classNames = child.className.split('');
+            for (var j = 0; j < classNames.length; j++) {
+                if (classNames[j] == className) {
+
+                    elements.push(child);
+                    break
+                }
+            }
+        }
+
+        return elements;
+    }
 }

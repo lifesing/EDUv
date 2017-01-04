@@ -119,6 +119,7 @@ html {
     width: 1205px;
     margin: 0 auto;
     text-align: left;
+    height: 100%;
 }
 
 .f-fr {
@@ -515,7 +516,8 @@ html {
     height: 248px;
     width: 225px;
     margin-right: 20px;
-    /*position: absolute;*/
+    box-sizing:border-box;
+    position: relative;
     /*border: 1px solid red;*/
 }
 
@@ -538,7 +540,7 @@ html {
 
 .m-courseBox .course {
     position: absolute;
-    height: auto;
+    height: 248px;
     width: 225px;
     margin-left: 10px;
     margin-top: 20px;
@@ -548,7 +550,7 @@ html {
 
 .m-courseBox .course-detail {
     display: none;
-    height: 237px;
+    /*height: 237px;*/
     width: 478px;
     z-index: 999;
     position: relative;
@@ -841,3 +843,10 @@ h4 {
     color: #666;
     padding-top: 6px;
 }
+
+/* 分页 */
+.m-page{float:right;margin-top:30px;margin-right:20px;}
+.m-page a,.m-page b{font-size:14px;line-height:20px;display:inline-block;width:20px;height:20px;margin:0 3px;text-align:center;border-radius:4px;}
+.m-page a.first,.m-page a.last{font-size:16px;width:30px;color:#fff;background-color:#9dd8b1;}
+.m-page a:hover{border-radius:3px;background-color:#9dd8b1;}
+.m-page a.z-crt{color:#39a030;}

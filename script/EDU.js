@@ -1,3 +1,39 @@
+// 幻灯片效果
+
+window.onload = function () {
+
+
+
+
+    flag = 0;
+    slider = document.getElementById("slide");
+    a = document.querySelectorAll(".astyle");
+    li = document.getElementById("pointer").children;
+    li[0].style.background = "#000000"; //默认选中颜色
+    a[0].style.display = "inline";
+    time = setInterval("turn();", 5000);
+    slider.onmouseover = function () {
+        clearInterval(time);
+    }
+    slider.onmouseout = function () {
+            time = setInterval("turn();", 5000);
+        }
+        // for (var num = 0; num < li.length; num++) {
+        //     li[num].onmouseover = function() {
+        //         debugger
+        //         turn(li[num]);
+        //         clearInterval(time);
+        //     }
+        //     li[num].onmouseout = function() {
+        //         debugger
+        //         time = setInterval("turn();", 5000);
+        //     }
+        // }
+
+}
+
+
+
 //选项卡切换
 function tabChange(tit_id, con_id, activeclass, this_num) {
     var tabTit = document.getElementById(tit_id);
@@ -49,36 +85,8 @@ function closeTips() {
 // }
 // xhr.open('get', 'http://study.163.com/webDev/couresByCategory.htm', true);
 
-// 幻灯片效果
 
-window.onload = function () {
-        flag = 0;
-        slider = document.getElementById("slide");
-        a = document.querySelectorAll(".astyle");
-        li = document.getElementById("pointer").children;
-        li[0].style.background = "#000000"; //默认选中颜色
-        a[0].style.display = "inline";
-        time = setInterval("turn();", 5000);
-        slider.onmouseover = function () {
-            clearInterval(time);
-        }
-        slider.onmouseout = function () {
-                time = setInterval("turn();", 5000);
-            }
-            // for (var num = 0; num < li.length; num++) {
-            //     li[num].onmouseover = function() {
-            //         debugger
-            //         turn(li[num]);
-            //         clearInterval(time);
-            //     }
-            //     li[num].onmouseout = function() {
-            //         debugger
-            //         time = setInterval("turn();", 5000);
-            //     }
-            // }
-
-    }
-    // 轮播效果
+// 轮播效果
 var turn = function (value) {
 
     if (value != null) {
@@ -176,8 +184,51 @@ function topModule() {
 }
 topModule();
 
-function a() {
+//获取课程列表
+function getLessonList(query) {
 
-    var i=0;
+    get('http://study.163.com/webDev/couresByCategory.htm', query, function (response) {
+        var html = '';
+        var lessonListData = JSON.parse(response);
+        each(lessonListData.list, function (item, i) {
+            html += '<div class="m-courseBox f-fl"><div class="course">';
+            html += '<div class="imgBox"> <img src="' + item.middlePhotoUrl + '" width="100%" height="124"/></div>';
+            html += '<p class="title">' + item.name + '</p>';
+            html += '<span class="category">' + item.provider + '</span>';
+            html += '<div class="number"><span>' + item.learnerCount + '</span></div>';
+            if (item.price == 0) {
+                 html += '<div class="price"><strong>免费</strong></div>';
+            } else {
+                html += '<div class="price"><strong>' + item.price + '</strong></div>';
+            }
+            html += '</div>';
 
+            html+='<div class="course-detail"><div>';
+            html+='<div style="margin:10px 10px 20px 10px;height:126px;">';
+            html+='<div class="f-fl"><img src="'+item.middlePhotoUrl+'" height="124" width="221"/></div>';
+            html+='<div class="f-fl mrg20L">';
+            html+='<h3>'+item.name+"</h3>";
+            html+='<div class="pNum">'+item.learnerCount+'人在学</div>';
+            html+='<div class="text">发布者：'+item.provider+'</div>';
+            html+='<div class="text">分类：'+item.provider+'</div>';
+            html+='</div>';
+            html+='</div>';
+
+            html+='<div style="background:#f8f8f8;">';
+            html+='<p class="pad20A">'+item.description+'</p>';;
+            html+='</div>';
+            html+='</div></div>';
+            html+='</div>';
+        });
+
+        getById('course-list').innerHTML = html;
+    });
 }
+
+var query = {
+    pageNo: 1,
+    psize: 10,
+    type: 20
+};
+
+getLessonList(query); //课程列表初始化
