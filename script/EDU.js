@@ -1,6 +1,6 @@
 // 幻灯片效果
 
-window.onload = function () {
+window.onload = function() {
 
 
 
@@ -12,10 +12,10 @@ window.onload = function () {
     li[0].style.background = "#000000"; //默认选中颜色
     a[0].style.display = "inline";
     time = setInterval("turn();", 5000);
-    slider.onmouseover = function () {
+    slider.onmouseover = function() {
         clearInterval(time);
     }
-    slider.onmouseout = function () {
+    slider.onmouseout = function() {
             time = setInterval("turn();", 5000);
         }
         // for (var num = 0; num < li.length; num++) {
@@ -84,7 +84,7 @@ function closeTips() {
 
 
 // 轮播效果
-var turn = function (value) {
+var turn = function(value) {
 
     if (value != null) {
         flag = value - 1;
@@ -142,10 +142,12 @@ function closeVideo() {
     box.style.display = "none";
 }
 
+
+// 登录和关注模块
 function showAtt() {
-    // debugger
+    debuggers
     var cookie = getCookie();
-    if (cookie == loginSuc) {
+    if (cookie.loginSuc) {
         var att = document.querySelector(".m-att");
         att.style.display = "none";
         var hasAtt = document.querySelector(".m-hasAtt");
@@ -193,37 +195,37 @@ topModule();
 //获取课程列表
 function getLessonList(query) {
 
-    get('http://study.163.com/webDev/couresByCategory.htm', query, function (response) {
+    get('http://study.163.com/webDev/couresByCategory.htm', query, function(response) {
         var html = '';
         var lessonListData = JSON.parse(response);
-        each(lessonListData.list, function (item, i) {
+        each(lessonListData.list, function(item, i) {
             html += '<div class="m-courseBox f-fl"><div class="course">';
             html += '<div class="imgBox"> <img src="' + item.middlePhotoUrl + '" width="100%" height="124"/></div>';
             html += '<p class="title">' + item.name + '</p>';
-            html += '<span class="category">' + item.provider + '</span>';
+            html += '<p class="category">' + item.provider + '</p>';
             html += '<div class="number"><span>' + item.learnerCount + '</span></div>';
             if (item.price == 0) {
                 html += '<div class="price"><strong>免费</strong></div>';
             } else {
-                html += '<div class="price"><strong>' + item.price + '</strong></div>';
+                html += '<div class="price"><strong>￥' + item.price + '</strong></div>';
             }
             html += '</div>';
 
-            html += '<div class="course-detail"><div>';
+            html += '<div class="course-detail"><a href="#"><div>';
             html += '<div style="margin:10px 10px 20px 10px;height:126px;">';
             html += '<div class="f-fl"><img src="' + item.middlePhotoUrl + '" height="124" width="221"/></div>';
             html += '<div class="f-fl mrg20L">';
-            html += '<h3>' + item.name + "</h3>";
+            html += '<h3 class="detail-title">' + item.name + "</h3>";
             html += '<div class="pNum">' + item.learnerCount + '人在学</div>';
             html += '<div class="text">发布者：' + item.provider + '</div>';
             html += '<div class="text">分类：' + item.provider + '</div>';
             html += '</div>';
             html += '</div>';
 
-            html += '<div style="background:#f8f8f8;">';
-            html += '<p class="pad20A">' + item.description + '</p>';;
+            html += '<div style="background:#f8f8f8;height:83px;">';
+            html += '<p class="detail-des mrg20A pad20T">' + item.description + '</p>';;
             html += '</div>';
-            html += '</div></div>';
+            html += '</div></a></div>';
             html += '</div>';
         });
 

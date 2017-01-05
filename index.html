@@ -6,8 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="网易云课堂，云课堂，视频课程，视频教程，课程集合，学习资源">
-    <meta name="description" content="在网易云课堂，发现好课！云课堂是网易公司(163.com)旗下实用技能学习平台。与顶级机构、院校和优秀讲师合作，为您提供海量优质课程，以及创新的在线学习体验。涉及IT互联网、设计、职场提升、经管、法律、语言、留学、考试、亲子育儿、兴趣生活等多个领域。帮助您获得全新的个人发展和能力提升。"
-    />
+    <meta name="description" content="在网易云课堂，发现好课！云课堂是网易公司(163.com)旗下实用技能学习平台。与顶级机构、院校和优秀讲师合作，为您提供海量优质课程，以及创新的在线学习体验。涉及IT互联网、设计、职场提升、经管、法律、语言、留学、考试、亲子育儿、兴趣生活等多个领域。帮助您获得全新的个人发展和能力提升。" />
     <link href="style/EDU.css" rel="stylesheet">
 </head>
 
@@ -32,9 +31,11 @@
                 <div class="m-logo f-fl f-pr">EDU&nbsp;</div>
                 <div class="m-logo-line f-fl"></div>
                 <div class="text f-fl f-pr">&ensp;网易教育产品部</div>
+                <!--关注-->
                 <div class="m-att f-fl" onclick="showAtt()">
                     <img class="mrg5R" src="images/icon_add.png">关注
                 </div>
+                <!--已关注-->
                 <div class="m-att m-hasAtt f-fl">
                     <img class="mrg5R" src="images/icon_right.png">已关注&ensp;|&ensp;<span>取消</span>
                 </div>
@@ -166,17 +167,17 @@
                         </div>
                     </div>-->
                 </div>
-                <div  class="m-page" >
-                     <a href="#" class="first pageprv z-dis"><span class="pagearr">&lt;</span></a>
-					    <a href="#">1</a>
-					    <a href="#" class="z-crt">2</a>
-					    <a href="#">3</a>
-					    <a href="#">4</a>
-					    <a href="#">5</a>
-					    <a href="#">6</a>
-					    <a href="#">7</a>
-					    <a href="#">8</a>
-					    <a class="last pagenxt"><span class="pagearr">&gt;</span></a>
+                <div class="m-page">
+                    <a href="#" class="first pageprv z-dis"><span class="pagearr">&lt;</span></a>
+                    <a href="#">1</a>
+                    <a href="#" class="z-crt">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#">6</a>
+                    <a href="#">7</a>
+                    <a href="#">8</a>
+                    <a class="last pagenxt"><span class="pagearr">&gt;</span></a>
                 </div>
             </div>
             <!--右侧侧栏-->
@@ -269,7 +270,7 @@
                         <input class="text" id="password" type="password" name="password" placeholder="密码">
                     </div>
                     <div>
-                        <button name="loginbtn">登录</button>
+                        <button name="loginbtn" onclick="login()">登录</button>
                     </div>
                 </fieldset>
             </form>
