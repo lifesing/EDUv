@@ -126,3 +126,65 @@ function getByClass(className, element) {
         return elements;
     }
 }
+
+/**
+ * event封装
+ */
+var EventUtil = {
+    /* 添加时间处理程序 */
+    addHandler: function (element, type, handler) {
+        if (element.addEventListener) {
+            element.addEventListener(type, handler, false);
+        } else if (element.attachEvent) {
+            element.attachEvent("on" + type, handler);
+        } else {
+            element["on" + type] = handler;
+        }
+    },
+    /* 获取event对象的引用 */
+    getEvent: function (event) {
+        return event ? event : window.event;
+    },
+    /* 获取事件的目标 */
+    getTarget: function (event) {
+        return event.target || event.srcElement;
+    },
+    /* 取消事件的默认函数 */
+    preventDefault: function (event) {
+        if (event.preventDefault) {
+            event.preventDefault();
+        } else {
+            event.returnValue = false;
+        }
+    },
+    /* 移除时间处理程序 */
+    removeHandler: function () {
+        if (element.removeEventListener) {
+            element.removeEventListener(type, handler, false);
+        } else if (element.detachEvent) {
+            element.detachEvent("on" + type, handler);
+        } else {
+            element["on" + type] = null;
+        }
+    },
+    /* 阻止事件流继续传播 */
+    stopPropagation: function (event) {
+        if (event.stopPropagation) {
+            event.stopPropagation();
+        } else {
+            event.cancelBubble = true;
+        }
+    },
+    /* 获取相关元素 */
+    getRelatedTarget: function (event) {
+        if (event.relatedTarget) {
+            return event.relatedTarget;
+        } else if (event.toElement) {
+            return event.toElement;
+        } else if (event.fromElement) {
+            return event.fromElement;
+        } else {
+            return null;
+        }
+    }
+};

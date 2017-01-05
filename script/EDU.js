@@ -36,24 +36,21 @@ window.onload = function () {
 
 //选项卡切换
 function tabChange(tit_id, con_id, activeclass, this_num) {
+
     var tabTit = document.getElementById(tit_id);
-    var tabCon = document.getElementById(con_id);
     var tabTitC = tabTit.children;
-    var tabConC = tabCon.children;
     var tabNum = tabTitC.length;
     for (i = 0; i < tabNum; i++) {
         tabTitC[i].firstChild.className = "";
-        tabConC[i].className = "hidden";
     }
     tabTitC[this_num].firstChild.className = activeclass;
-    tabConC[this_num].className = "";
+    this_num == 0 ? query.type = 10 : query.type = 20;
+    getLessonList(query);
 }
 
 
 // 顶部提示条
 function tips() {
-
-
     var tips = document.querySelector(".m-tips");
     var closeTips = document.querySelector(".closetips");
     var cookie = getCookie();
@@ -161,24 +158,33 @@ function showAtt() {
 
 
 // 最热排行模块
+// 获取数据
 function topModule() {
-
     var url = "http://study.163.com/webDev/hotcouresByCategory.htm";
     get(url, null, intoTop);
-
-
+    var ul = document.querySelector(".topUl");
+    // 写入到页面
     function intoTop(response) {
-
         var list = JSON.parse(response);
-        console.log(list);
-        var ul = document.querySelector(".topUl");
         for (var i = 0; i < list.length; i++) {
             var li = document.createElement("li");
-            li.innerHTML = '<li class=".clearfix topLi"><div class="f-fl"><img src="' +
+            li.setAttribute("class", "clearfix topLi");
+            li.innerHTML = '<div class="f-fl"><img src="' +
                 list[i].bigPhotoUrl +
                 '" height="50 px " width="50 px "></div><div class="mrg10L f-fl"><p class="topTxt">' +
-                list[i].name + '</p><div class="pNum">' + list[i].learnerCount + '</div></div></li>';
+                list[i].name + '</p><div class="pNum">' + list[i].learnerCount + '</div></div>';
             ul.appendChild(li);
+        }
+        // 实现滚动更新热门课程的效果
+        setInterval(changeTM, 5000);
+        i = 0;
+
+        function changeTM() {
+            var firstLi = ul.children[0];
+            var cLi = firstLi.cloneNode(true);
+            ul.appendChild(cLi);
+            ul.removeChild(ul.children[0]);
+            i++;
         }
     }
 }
@@ -197,28 +203,28 @@ function getLessonList(query) {
             html += '<span class="category">' + item.provider + '</span>';
             html += '<div class="number"><span>' + item.learnerCount + '</span></div>';
             if (item.price == 0) {
-                 html += '<div class="price"><strong>免费</strong></div>';
+                html += '<div class="price"><strong>免费</strong></div>';
             } else {
                 html += '<div class="price"><strong>' + item.price + '</strong></div>';
             }
             html += '</div>';
 
-            html+='<div class="course-detail"><div>';
-            html+='<div style="margin:10px 10px 20px 10px;height:126px;">';
-            html+='<div class="f-fl"><img src="'+item.middlePhotoUrl+'" height="124" width="221"/></div>';
-            html+='<div class="f-fl mrg20L">';
-            html+='<h3>'+item.name+"</h3>";
-            html+='<div class="pNum">'+item.learnerCount+'人在学</div>';
-            html+='<div class="text">发布者：'+item.provider+'</div>';
-            html+='<div class="text">分类：'+item.provider+'</div>';
-            html+='</div>';
-            html+='</div>';
+            html += '<div class="course-detail"><div>';
+            html += '<div style="margin:10px 10px 20px 10px;height:126px;">';
+            html += '<div class="f-fl"><img src="' + item.middlePhotoUrl + '" height="124" width="221"/></div>';
+            html += '<div class="f-fl mrg20L">';
+            html += '<h3>' + item.name + "</h3>";
+            html += '<div class="pNum">' + item.learnerCount + '人在学</div>';
+            html += '<div class="text">发布者：' + item.provider + '</div>';
+            html += '<div class="text">分类：' + item.provider + '</div>';
+            html += '</div>';
+            html += '</div>';
 
-            html+='<div style="background:#f8f8f8;">';
-            html+='<p class="pad20A">'+item.description+'</p>';;
-            html+='</div>';
-            html+='</div></div>';
-            html+='</div>';
+            html += '<div style="background:#f8f8f8;">';
+            html += '<p class="pad20A">' + item.description + '</p>';;
+            html += '</div>';
+            html += '</div></div>';
+            html += '</div>';
         });
 
         getById('course-list').innerHTML = html;
@@ -227,8 +233,8 @@ function getLessonList(query) {
 
 var query = {
     pageNo: 1,
-    psize: 10,
-    type: 20
+    psize: 20,
+    type: 10
 };
 
 getLessonList(query); //课程列表初始化
