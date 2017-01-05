@@ -212,7 +212,7 @@ function getLessonList(query) {
             html += '<div class="course-detail"><div>';
             html += '<div style="margin:10px 10px 20px 10px;height:126px;">';
             html += '<div class="f-fl"><img src="' + item.middlePhotoUrl + '" height="124" width="221"/></div>';
-            html += '<div class="f-fl mrg20L">';
+            html += '<div class="f-fl mrg20L" style="width:200px;">';
             html += '<h3>' + item.name + "</h3>";
             html += '<div class="pNum">' + item.learnerCount + '人在学</div>';
             html += '<div class="text">发布者：' + item.provider + '</div>';
@@ -238,3 +238,53 @@ var query = {
 };
 
 getLessonList(query); //课程列表初始化
+
+
+/**
+ * 跳转到指定页
+ */
+function goPage(pageNo) {
+    query.pageNo = pageNo;
+    getLessonList(query)
+    activeCurrentPageNo(pageNo);
+}
+
+/**
+ * 上一页
+ */
+function lastPage() {
+    if (query.pageNo <= 1) {
+        return false;
+    }
+    query.pageNo = query.pageNo - 1;
+    getLessonList(query)
+}
+
+/**
+ * 下一页
+ */
+function nextPage() {
+    if (query.pageNo >= 8) {
+        return false;
+    }
+    query.pageNo = query.pageNo + 1;
+    getLessonList(query)
+}
+
+/**
+ * 高亮当前页码
+ */
+function activeCurrentPageNo(pageNo) {
+
+    var pageList = getByClass('m-page', document)[0].children;
+    if (pageList) {
+
+        each(pageList, function (child, num) {
+            child.className = '';
+            if (child.innerText == pageNo) {
+                child.className = 'z-crt';
+            }
+        });
+    }
+
+}
