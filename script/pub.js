@@ -5,6 +5,7 @@
 // }
 // 获取cookie
 function getCookie() {
+    // debugger
     var cookie = {};
     var all = document.cookie;
     if (all === '') return cookie;
@@ -36,6 +37,12 @@ function setCookie(name, value, expires, path, domain, secure) {
     document.cookie = cookie;
 }
 
+// 删除cookie
+function removeCookie(name) {
+    debugger
+    // console.log('name=' + name + '; path=' + path + '; domain=' + domain + '; max-age=0');
+    document.cookie = name + '=' + '';
+}
 // 事件绑定
 // function addEvent(elem, type, listener) {
 //     if (elem.addEventListener) {
@@ -48,6 +55,8 @@ function setCookie(name, value, expires, path, domain, secure) {
 // get请求封装
 function get(url, options, callback) { //定义get函数
     //查询参数序列化
+    // debugger
+
     function serialize(options) {
         if (!options) { //如果没有查询参数
             return ""; //返回空字符
@@ -68,7 +77,7 @@ function get(url, options, callback) { //定义get函数
     var xhr = new XMLHttpRequest(); //创建Ajax对象
     xhr.open("get", url + '?' + serialize(options)); //开启一个异步请求
     xhr.send(null); //发送请求
-    xhr.onreadystatechange = function () { //注册事件 处理返回数据
+    xhr.onreadystatechange = function() { //注册事件 处理返回数据
         if (xhr.readyState == 4) { //若请求完毕
             if (xhr.status >= 200 && xhr.status < 300 || xhr.status == 304) { //若请求成功
                 callback(xhr.responseText); //调用回调函数处理响应结果
@@ -132,7 +141,7 @@ function getByClass(className, element) {
  */
 var EventUtil = {
     /* 添加时间处理程序 */
-    addHandler: function (element, type, handler) {
+    addHandler: function(element, type, handler) {
         if (element.addEventListener) {
             element.addEventListener(type, handler, false);
         } else if (element.attachEvent) {
@@ -142,15 +151,15 @@ var EventUtil = {
         }
     },
     /* 获取event对象的引用 */
-    getEvent: function (event) {
+    getEvent: function(event) {
         return event ? event : window.event;
     },
     /* 获取事件的目标 */
-    getTarget: function (event) {
+    getTarget: function(event) {
         return event.target || event.srcElement;
     },
     /* 取消事件的默认函数 */
-    preventDefault: function (event) {
+    preventDefault: function(event) {
         if (event.preventDefault) {
             event.preventDefault();
         } else {
@@ -158,7 +167,7 @@ var EventUtil = {
         }
     },
     /* 移除时间处理程序 */
-    removeHandler: function () {
+    removeHandler: function() {
         if (element.removeEventListener) {
             element.removeEventListener(type, handler, false);
         } else if (element.detachEvent) {
@@ -168,7 +177,7 @@ var EventUtil = {
         }
     },
     /* 阻止事件流继续传播 */
-    stopPropagation: function (event) {
+    stopPropagation: function(event) {
         if (event.stopPropagation) {
             event.stopPropagation();
         } else {
@@ -176,7 +185,7 @@ var EventUtil = {
         }
     },
     /* 获取相关元素 */
-    getRelatedTarget: function (event) {
+    getRelatedTarget: function(event) {
         if (event.relatedTarget) {
             return event.relatedTarget;
         } else if (event.toElement) {

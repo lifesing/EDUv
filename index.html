@@ -32,12 +32,12 @@
                 <div class="m-logo-line f-fl"></div>
                 <div class="text f-fl f-pr">&ensp;网易教育产品部</div>
                 <!--关注-->
-                <div class="m-att f-fl" onclick="showAtt()">
-                    <img class="mrg5R" src="images/icon_add.png">关注
+                <div class="m-att f-fl">
+                    <img class="mrg5R" src="images/icon_add.png"><span onclick="showAtt()">关注</span>
                 </div>
                 <!--已关注-->
                 <div class="m-att m-hasAtt f-fl">
-                    <img class="mrg5R" src="images/icon_right.png">已关注&ensp;|&ensp;<span>取消</span>
+                    <img class="mrg5R" src="images/icon_right.png">已关注&ensp;|&ensp;<span><a onclick="cancel()">取消</a></span>
                 </div>
                 <div class="m-fans f-fl">
                     <span>粉丝</span>
@@ -112,7 +112,7 @@
     <!--中间图片-->
     <div class="pictures">
         <div class="g-flow">
-            <div class="f-fl picture img-1 "></div>
+            <div class="f-fl picture picture1 img-1 "></div>
             <div class="f-fl picture img-2 "></div>
             <div class="f-fl picture img-3 "></div>
             <div class="f-fl picture img-4 "></div>
@@ -259,7 +259,7 @@
     <div class="m-popBox" id="login">
         <div class="m-login">
             <div class="m-close f-fr" onclick="closeBox()"></div>
-            <form action="" name="loginForm" target="result" autocomplete="off">
+            <form name="loginForm" target="result" autocomplete="off">
                 <legend>登录网易云课堂</legend>
                 <fieldset>
                     <div>
@@ -285,6 +285,7 @@
     </div>
     <script type="text/javascript" src="script/pub.js"></script>
     <script type="text/javascript" src="script/EDU.js"></script>
+    <script type="text/javascript" src="script/md5.js"></script>
 </body>
 
 </html>

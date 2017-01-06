@@ -145,9 +145,9 @@ function closeVideo() {
 
 // 登录和关注模块
 function showAtt() {
-    debuggers
+    debugger
     var cookie = getCookie();
-    if (cookie.loginSuc) {
+    if (cookie.loginSuc == 1) {
         var att = document.querySelector(".m-att");
         att.style.display = "none";
         var hasAtt = document.querySelector(".m-hasAtt");
@@ -156,6 +156,71 @@ function showAtt() {
         var login = document.getElementById("login");
         login.style.display = "block";
     }
+}
+
+function login() {
+    // debugger
+    var userName = document.getElementById("userName").value;
+    var password = document.getElementById("password").value;
+
+    // var ouserName = hex_md5(userName);
+    // var opassword = hex_md5(password);
+    var options = { userName: md5(userName), password: md5(password) };
+    var url = "http://study.163.com/webDev/login.htm";
+    get(url, options, closeLogin);
+
+
+    function closeLogin(response) {
+        debugger
+        if (response == 1) {
+            var login = document.getElementById("login");
+            login.style.display = "none";
+            setCookie("loginSuc", 1, new Date());
+            followAPI();
+        } else {
+            alert("账号密码错误");
+        }
+    }
+
+    function followAPI() {
+        debugger
+        var url = "http://study.163.com/webDev/attention.htm";
+        get(url, null, function(response) {
+            if (response == 1) {
+                setCookie('followSuc', 1, new Date());
+                setAttBtn();
+            }
+        });
+    }
+
+    function setAttBtn() {
+        debugger
+        var cookie = getCookie();
+        var att = document.getElementsByClassName("m-att");
+        var hasAtt = document.getElementsByClassName("m-hasAtt");
+        if (cookie.followSuc == 1) {
+            att[0].style.display = "none";
+            hasAtt[0].style.display = "block";
+        } else {
+            att[0].style.display = "block";
+            hasAtt[0].style.display = "none";
+        }
+    }
+
+}
+
+function cancel() {
+    debugger
+    // removeCookie("followSuc");
+    setCookie("followSuc", "", { expireDays: -1 });
+    setCookie("loginSuc", "", { expireDays: -1 });
+
+    // document.cookie("followSuc").Expires = Date - 1;
+    var att = document.getElementsByClassName("m-att");
+    var hasAtt = document.getElementsByClassName("m-hasAtt");
+    att[0].style.display = "block";
+    hasAtt[0].style.display = "none";
+
 }
 
 
@@ -215,11 +280,8 @@ function getLessonList(query) {
             html += '<div style="margin:10px 10px 20px 10px;height:126px;">';
             html += '<div class="f-fl"><img src="' + item.middlePhotoUrl + '" height="124" width="221"/></div>';
 
-            html += '<div class="f-fl mrg20L">';
-            html += '<h3 class="detail-title">' + item.name + "</h3>";
-
             html += '<div class="f-fl mrg20L" style="width:200px;">';
-            html += '<h3>' + item.name + "</h3>";
+            html += '<h3class="detail-title">' + item.name + "</h3>";
 
             html += '<div class="pNum">' + item.learnerCount + '人在学</div>';
             html += '<div class="text">发布者：' + item.provider + '</div>';

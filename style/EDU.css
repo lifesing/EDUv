@@ -272,6 +272,10 @@ html {
     color: #999;
 }
 
+.g-nav .m-hasAtt a:hover {
+    text-decoration: underline;
+}
+
 .g-nav .m-fans {
     margin-left: 14px;
     font-size: 12px;
@@ -343,8 +347,8 @@ html {
 }
 
 .slide img {
-    width: 1616px;
-    height: 460px;
+    width: 100%;
+    height: 100%;
     /*width="1616px;" height="459px;*/
 }
 
@@ -444,6 +448,8 @@ html {
 .picture {
     width: 320px;
     height: 220px;
+    /*width: 100%;
+    height: 100%;*/
     margin-right: 2px;
     margin-left: 1px;
 }
@@ -928,3 +934,41 @@ h4 {
     -webkit-box-orient: vertical;
     color: #666;
 }
+
+
+/*@media screen and (max-width: 1205px) {
+    .g-flow {
+        width: 960px;
+    }
+    .mn-course {
+        width: 740px;
+    }
+    .g-flow {
+        width: 960px;
+    }
+    .slide,
+    .foot {
+        min-width: 960px;
+    }
+    .adv-intro-pclass {
+        width: 280px;
+        /*height: 242px;*/
+
+
+/*}
+    .adv-intro .text {
+        width: 150px;
+    }
+    .pictures .g-flow {
+        width: 960px;
+    }
+    .picture1 {
+        margin-left: -300px;
+    }
+    .foot .g-flow {
+        min-width: 960px;
+        position: relative;
+    }
+}*/
+
+*/
