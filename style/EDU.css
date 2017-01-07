@@ -776,7 +776,7 @@ h4 {
     cursor: pointer;
 }
 
-.m-login form {
+.m-login .loginForm {
     margin: 30px 50px 40px 38px;
 }
 
@@ -970,5 +970,3 @@ h4 {
         position: relative;
     }
 }*/
-
-*/

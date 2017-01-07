@@ -1,10 +1,7 @@
-// 幻灯片效果
-
-window.onload = function() {
-
-
-
-
+/**
+ * 幻灯片效果
+ */
+window.onload = function () {
     flag = 0;
     slider = document.getElementById("slide");
     a = document.querySelectorAll(".astyle");
@@ -12,29 +9,17 @@ window.onload = function() {
     li[0].style.background = "#000000"; //默认选中颜色
     a[0].style.display = "inline";
     time = setInterval("turn();", 5000);
-    slider.onmouseover = function() {
+    slider.onmouseover = function () {
         clearInterval(time);
     }
-    slider.onmouseout = function() {
-            time = setInterval("turn();", 5000);
-        }
-        // for (var num = 0; num < li.length; num++) {
-        //     li[num].onmouseover = function() {
-        //         debugger
-        //         turn(li[num]);
-        //         clearInterval(time);
-        //     }
-        //     li[num].onmouseout = function() {
-        //         debugger
-        //         time = setInterval("turn();", 5000);
-        //     }
-        // }
-
+    slider.onmouseout = function () {
+        time = setInterval("turn();", 5000);
+    }
 }
 
-
-
-//选项卡切换
+/**
+ * 选项卡切换
+ */
 function tabChange(tit_id, con_id, activeclass, this_num) {
 
     var tabTit = document.getElementById(tit_id);
@@ -49,7 +34,9 @@ function tabChange(tit_id, con_id, activeclass, this_num) {
 }
 
 
-// 顶部提示条
+/*
+ * 顶部提示条
+ */
 function tips() {
     var tips = document.querySelector(".m-tips");
     var closeTips = document.querySelector(".closetips");
@@ -64,27 +51,16 @@ function closeTips() {
 
     var tips = document.querySelector(".m-tips");
     var closeTips = document.querySelector(".closetips");
-    setCookie("noTips", 1, new Date());
-    //setCookie("noTips", 1, new Date() + 3600 * 24);
+    var date = new Date();
+    date.setDate(new Date() + 7); //保存1天
+    setCookie("noTips", 1, date);
     tips.style.display = 'none';
 }
 
-
-// var xhr = new XMLHttpRequest();
-// xhr.onreadystatechange = function(callback) {
-//     if (xhr.readyState == 4) {
-//         if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
-//             callback(xhr.responseText);
-//         } else {
-//             alert('Request was unsuccessful:' + xhr.status);
-//         }
-//     }
-// }
-// xhr.open('get', 'http://study.163.com/webDev/couresByCategory.htm', true);
-
-
-// 轮播效果
-var turn = function(value) {
+/*
+ * 轮播效果
+ */
+var turn = function (value) {
 
     if (value != null) {
         flag = value - 1;
@@ -99,33 +75,10 @@ var turn = function(value) {
         a[j].style.display = "none";
     }
     li[flag].style.backgroundColor = "#000000";
-    // 淡入效果
-    // var obj = a[flag];
-    // var Fadeflag = true;
-
-    // function Fade() {
-    //     this.hide = function(obj) {
-    //         var num = 0;
-    //         if (Fadeflag) {
-    //             var st = setInterval(function() {
-    //                 num++;
-    //                 Fadeflag = false;
-    //                 obj.style.opacity = num / 10;
-    //                 if (num <= 0) {
-    //                     clearInterval(st);
-    //                     Fadeflag = true;
-    //                 }
-    //             }, 100);
-    //         }
-    //     }
-    // }
-    // var fade = new Fade();
-    // fade.hide(obj);
     a[flag].style.display = "inline";
 }
 
 function showVideo() {
-    // debugger
     var box = document.getElementById("playVideo");
     box.style.display = "block";
 
@@ -142,10 +95,8 @@ function closeVideo() {
     box.style.display = "none";
 }
 
-
 // 登录和关注模块
 function showAtt() {
-    debugger
     var cookie = getCookie();
     if (cookie.loginSuc == 1) {
         var att = document.querySelector(".m-att");
@@ -158,74 +109,82 @@ function showAtt() {
     }
 }
 
+/**
+ * 登录
+ */
 function login() {
-    // debugger
+
     var userName = document.getElementById("userName").value;
     var password = document.getElementById("password").value;
+    var options = {
+        userName: md5(userName),
+        password: md5(password)
+    };
 
-    // var ouserName = hex_md5(userName);
-    // var opassword = hex_md5(password);
-    var options = { userName: md5(userName), password: md5(password) };
     var url = "http://study.163.com/webDev/login.htm";
-    get(url, options, closeLogin);
+    get(url, options, function (response) {
 
-
-    function closeLogin(response) {
-        debugger
         if (response == 1) {
             var login = document.getElementById("login");
             login.style.display = "none";
-            setCookie("loginSuc", 1, new Date());
+            var date = new Date();
+            date.setDate(new Date() + 7); //保存7天
+            setCookie("loginSuc", 1, date);
             followAPI();
         } else {
             alert("账号密码错误");
         }
-    }
+    });
 
     function followAPI() {
-        debugger
+
         var url = "http://study.163.com/webDev/attention.htm";
-        get(url, null, function(response) {
+        get(url, null, function (response) {
             if (response == 1) {
-                setCookie('followSuc', 1, new Date());
-                setAttBtn();
+                var date = new Date();
+                date.setDate(new Date() + 7); //保存7天
+                setCookie('followSuc', 1, date);
+                setFollowStatus();
             }
         });
     }
-
-    function setAttBtn() {
-        debugger
-        var cookie = getCookie();
-        var att = document.getElementsByClassName("m-att");
-        var hasAtt = document.getElementsByClassName("m-hasAtt");
-        if (cookie.followSuc == 1) {
-            att[0].style.display = "none";
-            hasAtt[0].style.display = "block";
-        } else {
-            att[0].style.display = "block";
-            hasAtt[0].style.display = "none";
-        }
-    }
-
 }
 
-function cancel() {
-    debugger
-    // removeCookie("followSuc");
-    setCookie("followSuc", "", { expireDays: -1 });
-    setCookie("loginSuc", "", { expireDays: -1 });
+/**
+ * 设置页面关注状态
+ */
+function setFollowStatus() {
 
-    // document.cookie("followSuc").Expires = Date - 1;
+    var cookie = getCookie();
+    var att = document.getElementsByClassName("m-att");
+    var hasAtt = document.getElementsByClassName("m-hasAtt");
+    if (cookie.followSuc == 1) {
+        att[0].style.display = "none";
+        hasAtt[0].style.display = "block";
+    } else {
+        att[0].style.display = "block";
+        hasAtt[0].style.display = "none";
+    }
+}
+
+setFollowStatus();
+
+/**
+ * 取消关注
+ */
+function cancel() {
+    removeCookie("followSuc");
+    removeCookie("loginSuc");
     var att = document.getElementsByClassName("m-att");
     var hasAtt = document.getElementsByClassName("m-hasAtt");
     att[0].style.display = "block";
     hasAtt[0].style.display = "none";
-
 }
 
-
-// 最热排行模块
-// 获取数据
+/**
+ * 最热排行模块
+ * 获取数据
+ */
 function topModule() {
     var url = "http://study.163.com/webDev/hotcouresByCategory.htm";
     get(url, null, intoTop);
@@ -257,13 +216,15 @@ function topModule() {
 }
 topModule();
 
-//获取课程列表
+/**
+ * 获取课程列表
+ */
 function getLessonList(query) {
 
-    get('http://study.163.com/webDev/couresByCategory.htm', query, function(response) {
+    get('http://study.163.com/webDev/couresByCategory.htm', query, function (response) {
         var html = '';
         var lessonListData = JSON.parse(response);
-        each(lessonListData.list, function(item, i) {
+        each(lessonListData.list, function (item, i) {
             html += '<div class="m-courseBox f-fl"><div class="course">';
             html += '<div class="imgBox"> <img src="' + item.middlePhotoUrl + '" width="100%" height="124"/></div>';
             html += '<p class="title">' + item.name + '</p>';
@@ -308,14 +269,14 @@ var query = {
 
 getLessonList(query); //课程列表初始化
 
-
 /**
  * 跳转到指定页
  */
 function goPage(pageNo) {
     query.pageNo = pageNo;
     getLessonList(query)
-    activeCurrentPageNo(pageNo);
+    activeCurrentPageNo(query.pageNo);
+    v
 }
 
 /**
@@ -327,17 +288,19 @@ function lastPage() {
     }
     query.pageNo = query.pageNo - 1;
     getLessonList(query)
+    activeCurrentPageNo(query.pageNo);
 }
 
 /**
  * 下一页
  */
 function nextPage() {
-    if (query.pageNo >= 8) {
+    if (query.pageNo >= 3) {
         return false;
     }
     query.pageNo = query.pageNo + 1;
     getLessonList(query)
+    activeCurrentPageNo(query.pageNo);
 }
 
 /**
@@ -348,12 +311,11 @@ function activeCurrentPageNo(pageNo) {
     var pageList = getByClass('m-page', document)[0].children;
     if (pageList) {
 
-        each(pageList, function(child, num) {
+        each(pageList, function (child, num) {
             child.className = '';
             if (child.innerText == pageNo) {
                 child.className = 'z-crt';
             }
         });
     }
-
 }
